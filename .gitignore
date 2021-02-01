@@ -1,0 +1,42 @@
+# Files to block if project is loaded with VSCode (and probably Eclipse if there are no differences)
+# TODO: add files for IntelliJ
+
+Shared/.settings/*
+Shared/target/*
+Shared/.classpath
+Shared/.factorypath
+Shared/.project
+
+Bukkit/.settings/*
+Bukkit/target/*
+Bukkit/.classpath
+Bukkit/.factorypath
+Bukkit/.project
+
+Sponge-API7/.settings/*
+Sponge-API7/target/*
+# How does \/ this folder \/ even come to existence?!
+Sponge-API7/bin/*
+Sponge-API7/.classpath
+Sponge-API7/.factorypath
+Sponge-API7/.project
+
+Bungee/.settings/*
+Bungee/target/*
+Bungee/.classpath
+Bungee/.factorypath
+Bungee/.project
+
+Velocity/.settings/*
+Velocity/target/*
+Velocity/.classpath
+Velocity/.factorypath
+Velocity/.project
+
+Jar/.settings/*
+Jar/target/*
+Jar/.classpath
+Jar/.factorypath
+Jar/.project
+
+.project

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Based on: https://github.com/SkinsRestorer/SkinsRestorerX/
+    Branch: master
+    Commit: 326a56556014127a6769297ba92daee26a0804b1
+  
+    "Shared" module contains all code that can be reused across all platforms.
+    "Bukkit" module contains all code that applies to Bukkit only.
+    "Sponge-API7" module contains all code that applies to a Sponge-based server with API version 7 only.
+    ("Sponge-API8" should be a new module once SpongeAPI version 8 releases and we add support for it.)
+    "Bungee" module contains all code that applies to Bungee only.
+    "Velocity" module contains all code that applies to Velocity only.
+    "Jar" module will contain the final JAR, a product of the previous modules merged, and it is the
+  one that we will publish in the plugin distribution platforms, and the one the end-users will have
+  to use.
+  
+    Possibly good ideas:
+    - An "API" module, with only code for SkinsRestorer API.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.skinsrestorer</groupId>
+    <artifactId>skinsrestorer</artifactId>
+    <packaging>pom</packaging>
+
+    <name>SkinsRestorer</name>
+    <version>14.0.0-SNAPSHOT</version>
+    <description>Ability to restore/change skins on servers! (Offline and Online Mode)</description>
+    <url>https://skinsrestorer.net/</url>
+    
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE Version 3</name>
+            <url>LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <issueManagement>
+        <system>Github Issues</system>
+        <url>https://github.com/SkinsRestorer/SkinsRestorerX/issues</url>
+    </issueManagement>
+    
+    <distributionManagement>
+        <repository>
+            <id>codemc-releases</id>
+            <url>https://repo.codemc.org/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>codemc-snapshots</id>
+            <url>https://repo.codemc.org/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+    <scm>
+        <connection>scm:git:https://github.com/SkinsRestorer/SkinsRestorerX</connection>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>Shared</module>
+        <module>Bukkit</module>
+        <module>Sponge-API7</module>
+        <module>Bungee</module>
+        <module>Velocity</module>
+        <module>Jar</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>2.0.0</version>
+                <configuration>
+                    <verbose>false</verbose>
+                    <extraExtensions>
+                        <myProprietaryExtension>java</myProprietaryExtension>
+                    </extraExtensions>
+                    <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+                    <useJavaNoReformatCommentStartTag>false</useJavaNoReformatCommentStartTag>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>first</id>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <licenseName>gpl_v3</licenseName>
+                            <roots>
+                                <root>src/main/java/net/skinsrestorer</root>
+                            </roots>
+                            <organizationName>SkinsRestorer</organizationName>
+                            <inceptionYear>2021</inceptionYear>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
