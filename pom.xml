@@ -12,7 +12,7 @@
     "Velocity" module contains all code that applies to Velocity only.
     "Jar" module will contain the final JAR, a product of the previous modules merged, and it is the
   one that we will publish in the plugin distribution platforms, and the one the end-users will have
-  to use.
+  to use. This is also where all the relocations should occur. It should have any "src" folder.
   
     Possibly good ideas:
     - An "API" module, with only code for SkinsRestorer API.
@@ -48,6 +48,7 @@
             <id>codemc-releases</id>
             <url>https://repo.codemc.org/repository/maven-releases/</url>
         </repository>
+        
         <snapshotRepository>
             <id>codemc-snapshots</id>
             <url>https://repo.codemc.org/repository/maven-snapshots/</url>
@@ -85,6 +86,7 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
+            
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>

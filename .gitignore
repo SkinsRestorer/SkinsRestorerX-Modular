@@ -1,5 +1,9 @@
-# Files to block if project is loaded with VSCode (and probably Eclipse if there are no differences)
+# Files to ignore if project is loaded with VSCode (and probably Eclipse? if there are no differences)
 # TODO: add files for IntelliJ
+
+.settings/*
+.vscode/*
+.project
 
 Shared/.settings/*
 Shared/target/*
@@ -38,5 +42,3 @@ Jar/target/*
 Jar/.classpath
 Jar/.factorypath
 Jar/.project
-
-.project
